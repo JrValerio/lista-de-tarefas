@@ -1,0 +1,147 @@
+:root {
+  --cor-primaria-azul: #3b5bdb;
+  --cor-bg-cinza: #e2e2e2;
+  --cor-inputs-cinza: #ebebeb;
+  --cor-itens-cinza: #f1f3f5;
+  --cor-span-urgente-vermelho: #e40404;
+  --cor-span-normal-verde: #028302;
+  --cor-span-importante-amarelo: #f3a703;
+}
+
+body {
+  font-family: "roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--cor-bg-cinza);
+}
+
+.header__content,
+.main__container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.title2 {
+  font-size: 25px;
+}
+
+.input__box {
+  background-color: var(--cor-inputs-cinza);
+  padding: 15px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 16px;
+}
+
+.header__container {
+  background-color: #fff;
+  padding: 25px;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__input--search {
+  width: 600px;
+}
+
+.header__title {
+  color: var(--cor-primaria-azul);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.form__container {
+  width: 95%;
+  margin-top: 50px;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.form__input-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form__input--text {
+  width: 56%;
+}
+
+.form__input--priority {
+  width: 38%;
+  font-size: 16px;
+  color: gray;
+}
+
+.form__button--add-task {
+  width: 100%;
+  background-color: var(--cor-primaria-azul);
+  color: #fff;
+  border-radius: 6px;
+  padding: 15px;
+  border: 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tasks__container {
+  width: 95%;
+  margin-top: 50px;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.tasks__list {
+  margin-top: 30px;
+}
+
+.task__item {
+  margin-bottom: 20px;
+  background-color: var(--cor-itens-cinza);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.task-info__container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-type {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  display: block;
+}
+
+.span-important {
+  background-color: var(--cor-span-importante-amarelo);
+}
+
+.span-normal {
+  background-color: var(--cor-span-normal-verde);
+}
+
+.span-urgent {
+  background-color: var(--cor-span-urgente-vermelho);
+}
+
+.task__button--remove-task {
+  background: no-repeat center/contain url(./assets/trash-icon.svg) transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
