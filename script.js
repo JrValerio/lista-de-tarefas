@@ -21,30 +21,28 @@ function renderElements(tasks) {
   }
 }
 
-
-
 function createTaskItem(task) {
   const listItem = document.createElement("li");
   const infoContainer = document.createElement("div");
   const typeSpan = document.createElement("span");
   const taskTitle = document.createElement("p");
   const removeButton = document.createElement("button");
+  const taskType = task.type.toLowerCase()
 
   listItem.classList.add("task__item");
   infoContainer.classList.add("task-info__container");
   typeSpan.classList.add("task-type");
   removeButton.classList.add("task__button--remove-task");
-  
+
   taskTitle.innerText = task.title;
 
-  if (task.type == "Urgente") {
+  if (taskType == "urgente") {
     typeSpan.classList.add("span-urgent");
-  } else if (task.type == "Importante") {
+  } else if (taskType == "importante") {
     typeSpan.classList.add("span-important");
-  } else if (task.type == "Normal") {
+  } else {
     typeSpan.classList.add("span-normal");
   }
-  
 
   listItem.appendChild(infoContainer);
   infoContainer.appendChild(typeSpan);
@@ -55,6 +53,3 @@ function createTaskItem(task) {
 }
 
 renderElements(tasks);
-
-
-
