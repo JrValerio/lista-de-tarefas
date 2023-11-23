@@ -6,10 +6,13 @@
   --cor-span-urgente-vermelho: #e40404;
   --cor-span-normal-verde: #028302;
   --cor-span-importante-amarelo: #f3a703;
+
+  --font-roboto: "roboto", sans-serif;
+  --font-size-base: 16px;
 }
 
 body {
-  font-family: "roboto", sans-serif;
+  font-family: var(--font-roboto);
   margin: 0;
   padding: 0;
   background-color: var(--cor-bg-cinza);
@@ -30,7 +33,7 @@ body {
   padding: 15px;
   border-radius: 5px;
   border: 0;
-  font-size: 16px;
+  font-size: var(--font-size-base);
 }
 
 .header__container {
@@ -144,4 +147,5 @@ body {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  
 }

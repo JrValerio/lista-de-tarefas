@@ -53,3 +53,26 @@ function createTaskItem(task) {
 }
 
 renderElements(tasks);
+
+
+const form = document.querySelector(".form__button--add-task")
+
+form.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  const inputTitle = document.querySelector(".form__input--text");
+  const selectPriority = document.querySelector(".form__input--priority");
+
+  let input = inputTitle.value;
+  let select = selectPriority.value;
+
+  tasks.push({title: input, type: select });
+  
+  renderElements(tasks);
+
+})
+
+
+
+
+
