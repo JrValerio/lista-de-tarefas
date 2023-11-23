@@ -10,9 +10,13 @@ const tasks = [
   { title: "Pagar a conta de energia", type: "Urgente" },
   { title: "Assistir a um documentário interessante", type: "Normal" },
 ];
+const ul = document.querySelector(".tasks__list");
+const form = document.querySelector(".form__button--add-task");
+const inputTitle = document.querySelector(".form__input--text");
+const selectPriority = document.querySelector(".form__input--priority");
 
 function renderElements(tasks) {
-  const ul = document.querySelector(".tasks__list");
+  ul.innerHTML = "";
 
   for (let i = 0; i < tasks.length; i++) {
     const list = tasks[i];
@@ -27,7 +31,7 @@ function createTaskItem(task) {
   const typeSpan = document.createElement("span");
   const taskTitle = document.createElement("p");
   const removeButton = document.createElement("button");
-  const taskType = task.type.toLowerCase()
+  const taskType = task.type.toLowerCase();
 
   listItem.classList.add("task__item");
   infoContainer.classList.add("task-info__container");
@@ -49,30 +53,22 @@ function createTaskItem(task) {
   infoContainer.appendChild(taskTitle);
   listItem.appendChild(removeButton);
 
+  removeButton.addEventListener("click", function () {
+    const index = tasks.indexOf(listItem);
+    tasks.splice(index, 1);
+    renderElements(tasks);
+  });
+
   return listItem;
 }
-
-renderElements(tasks);
-
-
-const form = document.querySelector(".form__button--add-task")
 
 form.addEventListener("click", function (event) {
   event.preventDefault();
 
-  const inputTitle = document.querySelector(".form__input--text");
-  const selectPriority = document.querySelector(".form__input--priority");
-
   let input = inputTitle.value;
   let select = selectPriority.value;
 
-  tasks.push({title: input, type: select });
-  
+  tasks.push({ title: input, type: select });
+
   renderElements(tasks);
-
-})
-
-
-
-
-
+});
