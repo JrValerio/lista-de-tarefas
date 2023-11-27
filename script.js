@@ -10,12 +10,42 @@ const tasks = [
   { title: "Pagar a conta de energia", type: "Urgente" },
   { title: "Assistir a um documentário interessante", type: "Normal" },
 ];
-const ul = document.querySelector(".tasks__list");
 const form = document.querySelector(".form__button--add-task");
 const inputTitle = document.querySelector(".form__input--text");
 const selectPriority = document.querySelector(".form__input--priority");
+const searchInput = document.querySelector(".header__input--search");
+const searchButton = document.querySelector(".button__search");
+
+form.addEventListener("click", function (event) {
+  event.preventDefault();
+  let input = inputTitle.value;
+  let select = selectPriority.value;
+
+  tasks.push({ title: input, type: select });
+  renderElements(tasks);
+  alert("Tarefa adicionada com sucesso!");
+});
+
+searchInput.addEventListener("input", () => {
+  const search = searchInput.value.toLowerCase();
+  let listTask = document.getElementsByClassName("task__item");
+
+  for (let i = 0; i < listTask.length; i++) {
+    let taskTitle = listTask[i].querySelector("p").innerText.toLowerCase();
+    let taskType = listTask[i].querySelector(".task-type").classList[1];
+    
+    if (!taskTitle.includes(search) && !taskType.includes(search)) {
+      listTask[i].style.display = "none";
+    } else {
+      listTask[i].style.display = "flex";
+    }
+
+  }
+  
+});
 
 function renderElements(tasks) {
+  const ul = document.querySelector(".tasks__list");
   ul.innerHTML = "";
 
   for (let i = 0; i < tasks.length; i++) {
@@ -54,21 +84,11 @@ function createTaskItem(task) {
   listItem.appendChild(removeButton);
 
   removeButton.addEventListener("click", function () {
-    const index = tasks.indexOf(listItem);
+    const index = tasks.indexOf(task);
     tasks.splice(index, 1);
     renderElements(tasks);
+    alert("Tarefa removida com sucesso!");
   });
 
   return listItem;
 }
-
-form.addEventListener("click", function (event) {
-  event.preventDefault();
-
-  let input = inputTitle.value;
-  let select = selectPriority.value;
-
-  tasks.push({ title: input, type: select });
-
-  renderElements(tasks);
-});
